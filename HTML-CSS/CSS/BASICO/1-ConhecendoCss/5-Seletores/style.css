@@ -1,0 +1,24 @@
+/* Combinator
+
+    - DESCNDENT
+    - LIST
+    - NEXT SIBLING
+    -CHILD
+
+*/
+
+h1 p span {
+    color: red
+}
+
+span, mark{
+    color: palegreen
+}
+
+h2 + p { /*Exemplo 1: vai colorir o p que tem um h2 anterior a ele,*/ 
+    color: red
+}
+
+aside > ul{/* Pegue o primeiro filho do asside*/
+    margin-top: 0;
+}

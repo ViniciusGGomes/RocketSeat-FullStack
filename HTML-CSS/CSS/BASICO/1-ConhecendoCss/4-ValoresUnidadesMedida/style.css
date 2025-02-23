@@ -1,0 +1,22 @@
+/*Valores e unidades de medidas
+
+    Cada propriedade possui valores
+    `property: value`
+
+    <data-type>
+
+    - Não é preciso saber tudo! o importante
+    é saber pescar 
+
+    syntax.
+    VAI NO GOOGLE, E PESQUISE
+    mdn text-transform(nome da propriedade)
+
+*/
+
+h1{
+    color: blue; /* color */
+    font-size: 32px; /* length */
+    letter-spacing: 2; /* number */
+    text-transform: uppercase; /* keyword */
+}
