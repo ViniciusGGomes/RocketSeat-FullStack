@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <form>
+      <label for="amount">valor</label>
+      <!--Label melhora a acessibilidade, associar o texto("valor ou moeda") aos campos(<input> e <select>)-->
+      <input type="text" name="amount" id="amount" placeholder="0" required>
+      <!--Input type="text", permite que o usuário digite diretamente qualquer valor,sem limitar suas opções-->
+
+      <label for="currency">moeda</label>
+      <select name="currency" id="currency" required> 
+        <!--Select garante que oo usuário escolha apenas entre valores válidos-->
+        <!--required: torna o campo obrigatório; O formulario não pode ser enviado sem que o usuário escolha uma opção-->
+        <option value="" disabled selected hidden>Selecione a moeda</option>
+        <!--Disabled: impede que o usuário escolha essa opção como valor válido. Ela é útil para mensagens de instrução, como "Selecione a moeda"-->
+        <!--Select: Faz desta a opção exibida por padrão, se remover a mensagem desaparece-->
+        <!--hidden: Esconde essa opção no menu dropdown após ser aberta-->
+
+        <option value="USD">Dólar Americano</option>
+        <option value="EUR">Euro</option>
+        <option value="GBP">Libra Esterlina</option>
+      </select>
+
+      <button type="submit">Converte em reais</button>
+      <!--submit: é usado para ações que envolvem envio ou processamento dos dados do formulário-->
+    </form>
+
+    <footer>
+      <span id="description"> US$ 1 = R$ 4,86</span>
+      <!--É um elemento generico, ele pode ser estilizado individualmente-->
+      <h1 id="result">486,00 Reais
+    </footer>
+  </main>
+  <script src="script.js"></script>
+  
+</body>
+</html>
