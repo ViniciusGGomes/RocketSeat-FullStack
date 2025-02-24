@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+<body>
+    <h1>De qual país você é?</h1>
+    <input type="text" id="txt">
+    <input type="button" value="Enviar" onclick="enviar()">
+    <div id="frase"> oi</div>
+
+    <script>
+        function enviar(){
+            var palavra = window.document.getElementById("txt").value
+            var f = window.document.querySelector("div#frase")
+            if(palavra.toUpperCase() == "BRASIL"){
+                f.innerHTML = `Você é brasilerio. <strong>${palavra}</strong>`
+            }else{
+                f.innerHTML = `Você é estranheiro. <strong>${palavra}</strong>`
+            
+            }
+        }
+    </script>
+
+
+</body>
+</html>
