@@ -1,0 +1,318 @@
+* {             /*Remove estilos padrões do navegadores(Margem e Padding), garante um layout mais previsível para estilização*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {         /*:root{} Definição de variáveis Globais, define a fonte padrão para toda a página. Define o tamanho base da fonte*/
+font-family: "Open Sans", sans-serif;
+font-size: 16px;
+}
+
+::-webkit-scrollbar { /*Personalização da Barra de rolagem*/
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track { /*Personaliza a trilha da rolagem*/ 
+background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb { /*Personaliza o "polegar da rolagem"*/
+    background: #e4ece9;
+  }
+
+body { /*Estilizando o corpo da página,*/
+width: 100%; /*Ocupa toda a largura da tela*/
+height: 100vh; /*Ocupa toda a altura da tela*/
+
+background-color: #e4ece9;
+
+display: flex; /*Ativa o modelo flexbox*/
+flex-direction: column; /*organiza os elementos verticalmente*/
+align-items: center; /* Centraliza os elementos horizontalmente*/
+
+color: #1f2523; /*Cor do texto*/
+}
+
+.logo {
+    margin: 3rem 0 2rem;
+  }
+
+main section { /*Estilizando a seção principal*/
+display: flex; /*Ativa o modelo flexbox*/
+flex: 1; /* Faz a seção ocupar o espaço restante do `main`*/
+gap: 1.25rem; /* Adiciona um espaçamento de 20px(1.25rem) entre os itens*/
+padding-bottom: 2rem; /*Adiciona um espaçamento inferior de 32px (2rem)*/
+}
+
+form { /*Estilizando o formulário*/
+background-color: #f9fbfa;
+border-radius: 1rem; /*Bordas arredondadas*/
+padding: 2.5rem; /*Espaçamento interno*/
+max-width: 462px; /*Largura máxima*/
+ 
+display: flex;
+flex-direction: column;
+}
+
+form h1 {
+font-size: 1.25rem;
+}
+
+form p {
+font-size: 0.87rem;
+color: #4d5c57;
+margin: 0.75rem 0 2.5rem;
+}
+
+fieldset { /*Grupo de campos*/
+border: none; /*Remove a borda padrão*/
+display: flex; 
+}
+
+fieldset legend {
+text-transform: uppercase;
+font-size: 0.62rem;
+color: #4d5c57;
+margin-bottom: 0.5rem;
+}
+
+fieldset:focus-within legend {
+color: #1f8459;
+font-weight: 700;
+}
+
+input,
+select {
+flex: 1; /*Faz os elementos ocuparem o máximo de espaço disponível*/
+height: 3rem; /*Altura fixa*/ 
+border-radius: 0.5rem;
+border: 1px solid #cdd5d2;
+padding: 0 1rem; /*Espaçamento interno*/
+font-size: 0.87rem;
+color: #1f2523;
+background-color: transparent;
+outline: none; /*Remove a borda azul ao focar*/
+}
+
+select {
+appearance: none;
+background-image: url(img/chevron-down.svg);
+background-repeat: no-repeat;
+background-position: right 0.7rem top 50%;
+background-size: 1.25rem auto;
+}
+
+input::placeholder, /*Cor do texto do placeholder*/
+select:invalid {
+color: #4d5c57; 
+}
+
+input:focus, /*Borda verde ao clicar*/
+select:focus { 
+border: 1.5px solid #1f8459; 
+}
+
+.inputs-row { /*Linha de inputs*/
+display: flex;
+flex: 1;
+
+gap: 1rem; /*Espaçamento entre os inputs*/
+margin-top: 1rem; /*Distancia do elemento acima*/
+}
+
+.inputs-row fieldset:first-child {  /*Faz o primeiro `fieldset` ocupar o máximo de espaço*/
+flex: 1;
+}
+
+.inputs-row fieldset:last-child input { /*Tamanho do último input*/
+max-width: 154px;
+}
+
+form button { /*Botão do formulário*/
+height: 3rem;
+border-radius: 0.5rem;
+border: none;
+font-size: 0.87rem;
+color: #ffffff;
+background-color: #1f8459;
+font-weight: 700;
+padding: 1rem 1.25rem;
+cursor: pointer;
+
+transition: background-color 0.2s;
+}
+
+button:hover { /*Muda a cor ao passar o mouse*/
+background-color: #2cb178;
+}
+
+form button:last-child { /*Adiciona um espaço de 2 rem acima desse botão, separando-o dos outros elemenentos acima*/
+margin-top: 2rem;
+}
+
+aside { /*Estilizando a barra lateral, Cria um bloco lateral com fundo claro, bordas arredondadas e tamanho fixo*/
+background-color: #f9fbfa;
+border-radius: 1rem;
+padding: 2.5rem; /*Adiciona espaçamento interno*/
+max-width: 462px;
+
+min-width: 600px; /*Garante que o <aside não fique menor que 600px>*/
+}
+
+aside header { /*Estilizando o cabeçalho do <aside>*/
+display: flex; /*Organiza os elementos do <header> lado lado*/
+justify-content: space-between; /*Separa os elementos um de cada lado*/
+
+border-bottom-width: 1px; /*Adiciona uma linha na parte inferior*/ 
+border-bottom-style: solid;
+border-bottom-color: #e4ece9;
+padding-bottom: 1.5rem; /*Espaço interno abaixo da borda*/
+margin-bottom: 1.5rem; /*Adiciona espaço extreno entre o <header> e os elementos abaixo*/
+}
+
+aside header p { /*Estilizando o Parágrafo dentro do <header>*/
+color: #4d5c57;
+font-weight: 400; /*peso da fonte*/
+font-size: 1rem; /*Define o tamanho da fonte*/
+}
+
+aside header p span { /*Estizando o <span> dentro do <p>*/
+color: #4d5c57;
+font-weight: 400;
+font-size: 0.87rem;
+}
+
+aside header p i { /*Estilizando o <i> dentro do <p>*/
+color: #cdd5d2;
+margin: 0 0.5rem;
+font-style: normal;
+}
+
+aside header h2 { /*Aplica o estilo ao elemento <h2>*/
+font-size: 1rem;
+color: #1f2523;
+}
+
+aside header small { /*Aplica o estilo ao elemento <small>*/
+color: #4d5c57;
+font-weight: 400;
+font-size: 0.75rem;
+margin-right: 0.25rem;
+}
+
+aside ul { /*Aplica o estilo ao elemento <ul>*/
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 1rem; /*Espaço entre os itens*/
+
+max-height: 310px;
+min-height: 310px;
+
+overflow-y: scroll; /*Adicioan uma barra de rolagem vertical se o conteúdo da lista exceder a altura definida(310px), a rolagem só será visível quando necessário*/
+}
+
+.expense { /*A classe .expense usa FLEXBOX para organizar os itens dentro dela de  forma flexível*/
+display: flex;
+align-items: center;
+height: 38px;
+}
+
+.expense img:first-child { /*Aplica o estilo à primeira imagem dentro da .expense*/
+width: 2rem;
+height: 2rem;
+
+margin-right: 0.75rem;
+}
+
+.expense > div {/*Estiliza o div filho direto de .expense*/
+display: flex;
+flex-direction: column;
+flex: 1;
+}
+
+.expense-info strong {/*Aplica o estilo à tag<strong> dentro de um contêiner com a classe .expense-info*/
+font-size: 0.87rem;
+color: #1f2523;
+}
+
+.expense-info span {/*Aplica o estilo à tag <span> dentro de um contêiner com a classe .expense-info*/
+font-size: 0.75rem;
+color: #4d5c57;
+}
+
+.expense-amount { /*Estiliza o elemento que contém o valor da despesa*/
+font-size: 0.87rem;
+color: #1f2523;
+font-weight: 600;
+}
+
+.expense-amount small { /*Aplica estilo à tag <small> dentro de um contêiner com a classe .expense-amount*/
+font-size: 0.75rem;
+color: #4d5c57;
+font-weight: 400;
+margin-right: 0.25rem;
+}
+
+.remove-icon { /*Define a altura do ícone*/
+height: 1rem;
+margin-left: 0.5rem;
+
+cursor: pointer;
+transition: opacity 0.2s;
+}
+
+.remove-icon:hover { /*Ao passar o maouse sorbe o ícone, a opacidade do ícone será reduzida para 70%*/
+opacity: 0.7;
+}
+
+@media (min-width: 1100px) { /*Este código aplica estilos apenas quando a largura da tela for maior ou igual a 1100px*/
+form {
+    max-height: 428px;
+}
+}
+
+@media (max-width: 1100px) { /*Este código aplica estilos apenas quando a largura da tela for menor ou igual a 1100px.*/
+:root {
+    font-size: 14px;
+}
+
+main,
+aside {
+    min-width: 100%;
+}
+
+main section {
+    flex-direction: column;
+    width: 100%;
+
+    padding: 1.5rem;
+}
+
+main section form {
+    min-width: 100%;
+}
+
+main section aside ul {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+}
+
+@media (max-width: 620px) {/*Este código aplica estilos apenas quando a largura da tela for menor ou igual a 620px.*/
+.inputs-row {
+    flex-direction: column;
+}
+
+.inputs-row fieldset:last-child input {
+    max-width: auto;
+    min-width: 100%;
+}
+
+aside header {
+    flex-direction: column;
+    align-items: center;
+}
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css">
+    <title>Refund</title>
+</head>
+<body>
+    <main>
+        <img src="./img/logo.svg" alt="refund logo" class="logo"/>
+        <section>
+            <form>
+                <h1>Solicitação de reembolso</h1>
+                <p>
+                    Informe os dados da despesa para solicitar reembolso. A despesa será
+                    analisada e reembolsada em até 30 dias
+                </p>
+
+                <fieldset> <!--Agrupar elementos de um formulário-->
+                    <legend>Nome da despesa</legend> <!--Define um título para o fieldset-->
+                    <input type="text" id="expense" name="expense" required> <!--1: Cria um campo de entrada de texto, 2:id define um indeficador único, 3:name dado possa ser identificado no backend, 4: required indica que esse campo é obrigatório.-->
+                </fieldset>
+
+                <div class="inputs-row"> <!--Container para organização do layout-->
+                    <fieldset>
+                        <legend>Categoria</legend>
+                        <select name="category" id="category" required> <!--Menu suspenso(dropdown), 1:name Define um nome para esse campo no formulário, 2:id Indentidicador único, 3:required Campo obrigatorio-->>
+                            <option value="" disabled selected hidden>Selecione</option> <!--1:Value valor dessa opção é vazio, 2:disabled impede que o usuário selecione essa opção. 3:Selected Define essa opção como padrão ao carregar a página, 4:Hidden Oculta essa opção da lista quando o usuário abre o menu-->
+                            <option value="Food">Alimentação</option> <!--Primeira opção valida dentro do select, Se o usuário escolher essa opção, o formulário enviará "food" como valor-->
+                            <option value="accommodation">Hospedagem</option>
+                            <option value="services">Serviços</option>
+                            <option value="transport">Transporte</option>
+                            <option value="others">Outros</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Valor da despesa</legend>
+                        <input type="text" name="amount" id="amount" placeholder="R$ 0,00" required/> <!--Cria um campo de entrada de texto, 1:placeholder Exibe um texto temporário dentro do campo. -->
+                    </fieldset>
+                </div>
+
+                <button type="submit">Adicionar despesa</button> <!--Type="submit" Define o botãp para enviar o formulário quando clicado-->
+            </form>
+
+            <aside><!--Cria um seção lateral, que exibe informações sobre despesas registradas-->
+                <header>
+                    <p>
+                        Minhas solicitações <i>&bullet;</i> <!--<i>&bullet</i> -> adiciona um ponto(.) para separar visualmente os elementos -->
+                        <span>0 despesa</span> <!--Mostra a quantidade de despesas registradas (inicialmente 0)-->
+                    </p>
+                    <h2><small>R$</small>0,00</h2> <!--Exibe o total de despesas no formato monetário(R$ 0,00)-->
+                </header>
+
+                <ul> <!--Cria um lista não ordenada que armazená as despesas-->
+                    <!--Exemplo da estrutura HTML de um item de despesa
+
+                    <li class="expense">                                           **Cada despesa é um item da lista, com a classe "expese" para estlização**
+                    <img src="img/food.svg" alt="ícone de tipo de despesa"/>
+
+                    <div class="expense-info">                                      **Agrupa informações da despesa**
+                        <strong>Almoço</strong>                                     **Nome da despesa**
+                        <span>Alimentação</span>                                    **Categoria da despesa**
+                    </div>
+
+                    <span class="expense-amount"><small>R$</small>1.420,57</span>   **Um elemento inline usado para aplicar estilos ou manipular partes de texto dentro de uma linha sem causar quebra de linha>
+
+                    <img src="./img/remove.svg" alt="remover" class="remove-icon">  **A classe pode ser usada para adicionar uma função JavaScript>
+                    </li>
+                    --> 
+                </ul>
+            </aside>
+        </section>
+        <script src="script.js"></script>
+    </main>
+</body>
+</html>
