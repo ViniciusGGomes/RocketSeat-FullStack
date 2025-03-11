@@ -10,6 +10,6 @@ const server = http.createServer(async(request, response) => {
 
 })
 
-server.listen(3333)
+server.listen(3000)
 
 
