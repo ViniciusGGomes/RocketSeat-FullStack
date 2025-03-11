@@ -1,19 +1,26 @@
 import { routes } from "../routes.js";
+import { extractQueryParams } from "../utils/extract-query-params.js";
+import { Database} from "../database.js"
+
+const database = new Database()
+
 
 export function routeHandler(request, response){
   const route = routes.find((route) => {
     return route.method === request.method && route.path.test(request.url)
+
+    
   })
 
   if(route){
     const routeParams = request.url.match(route.path)
-    const { ...params } = routeParams.groups
+    const {query, ...params } = routeParams.groups
+
     
     request.params = params
+    request.query = query ? extractQueryParams(query) : {}
 
-    console.log(params)
-
-    return route.Controller(request, response)
+    return route.Controller({request, response, database}) // Com chaves podemos passar em qualquer sequencia 
   }
   return response.writeHead(404).end("Rota não encontrada!")
 }
