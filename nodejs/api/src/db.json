@@ -1,6 +1,1 @@
-{
-  "products": [
-    { "name": "computador", "price": 280.09 },
-    { "name": "computador", "price": 280.09 }
-  ]
-}
+{"products":[{"name":"mouse","price":220.05},{"name":"teclado","price":220.05},{"name":"teclado","price":220.05}]}
