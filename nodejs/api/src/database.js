@@ -1,45 +1,37 @@
-import fs from "node:fs/promises"
-const DATABASE_PATH = new URL("db.json", import.meta.url)
+import fs from "node:fs/promises";
+
+const DATABASE_PATH = new URL("db.json", import.meta.url);
 
 export class Database {
-  database = {}
+  #database = {};
 
-  constructor(){
-    this.persist() //referenciar 
+  constructor() {
+    fs.readFile(DATABASE_PATH, "utf8")
+      .then((data) => {
+        this.#database = JSON.parse(data);
+      })
+      .catch(() => {
+        this.#persist();
+      });
   }
 
-  persist(){
-    fs.writeFile(DATABASE_PATH, JSON.stringify(this.database))
+  // Cria um novo arquivo!
+  // Passo o endereço do arquivo e o conteúdo dele.
+  #persist() {
+    fs.writeFile(DATABASE_PATH, JSON.stringify(this.#database));
   }
 
-  insert(table, data){ 
-    if(Array.isArray(this.database[table])){
-      this.database[table].push(data)
+  insert(table, data) {
+    if (Array.isArray(this.#database[table])) {
+      this.#database[table].push(data);
     } else {
-      this.database[table] = [data]
+      this.#database[table] = [data];
     }
 
-    this.persist()
+    this.#persist();
   }
 
-  select(table){
-    return this.database[table]
+  select(table) {
+    return this.#database[table] ?? []; // caso não tenha conteúdo retorna um array vazio.
   }
 }
-
-/*
-  database = {
-    product: [{
-    name: "computer", price: 5000},{
-    name: "mouse", price: 200
-    }],
-    user: [{
-    }]
-  }
-
-  Se não tiver um array, isso!:
-  {
-  "products": []
-  }
-  então a gente vai adicionar 
-*/
